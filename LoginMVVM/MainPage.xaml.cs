@@ -36,5 +36,10 @@ namespace LoginMVVM
         {
 
         }
+
+        private void CheckLogin_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

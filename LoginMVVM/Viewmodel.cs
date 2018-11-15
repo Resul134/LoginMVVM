@@ -14,6 +14,7 @@ namespace LoginMVVM
     class Viewmodel : INotifyPropertyChanged
     {
         private RelayCommand _loginCommand;
+        private RelayCommand _register;
         private string _inputUsername;
         private string _inputPassword;
         private string _loginCheck;
@@ -24,8 +25,10 @@ namespace LoginMVVM
 
             users.Add(new User("Lucas", "lucas123"));
             users.Add(new User("Resul","Resul123"));
-
+            users.Add(new User("Thomas", "Storpik123"));
+            
             _loginCommand = new RelayCommand(checkLogin);
+            _register = new RelayCommand(AddRegister);
 
         }
 
@@ -63,6 +66,12 @@ namespace LoginMVVM
             }
         }
 
+        public RelayCommand Register
+        {
+            get { return _register; }
+            set { _register = value; }
+        }
+
         public void checkLogin()
         {
             foreach (var user in users)
@@ -88,6 +97,12 @@ namespace LoginMVVM
                 
             }
         }
+
+        public void AddRegister()
+        {
+            users.Add(new User(_inputUsername,_inputPassword));
+        }
+        
 
         #region MyRegion
 

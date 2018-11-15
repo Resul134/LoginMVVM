@@ -5,9 +5,10 @@
     xmlns:local="using:LoginMVVM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="Fill" ImageSource="Assets/bitch.jpg"/>
+    </Page.Background>
 
     <Page.DataContext>
         <local:Viewmodel/>
@@ -18,13 +19,15 @@
             <RowDefinition Height="219*"/>
             <RowDefinition Height="281*"/>
         </Grid.RowDefinitions>
-        
-        <TextBlock x:Name="Username" HorizontalAlignment="Left" Margin="129,354,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="42" Width="217" FontSize="24"/>
-        <TextBlock x:Name="Password" HorizontalAlignment="Left" Margin="129,401,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Height="42" Width="217" FontSize="24" Grid.RowSpan="2"/>
-        <TextBox x:Name="UsernameInput" HorizontalAlignment="Left" Margin="351,359,0,0" TextWrapping="Wrap" Text="{Binding InputUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="42" Width="296" AllowDrop="True" SelectionChanged="UsernameInput_SelectionChanged"/>
-        <TextBlock x:Name="CheckLogin" HorizontalAlignment="Left" Margin="451,87.112,0,0" TextWrapping="Wrap" Text="{Binding LoginCheck, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="76" Width="196" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="Login" Content="Login" Command="{Binding LoginCommand}" HorizontalAlignment="Left" Margin="652,131.112,0,0" VerticalAlignment="Top" Height="32" Width="127" Grid.Row="1"/>
-        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="351,401,0,0" VerticalAlignment="Top" Height="42" Width="296" PasswordChanged="PasswordBox_PasswordChanged" Password="{Binding InputPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="2"/>
+
+        <TextBlock x:Name="Username" HorizontalAlignment="Left" Margin="61,109,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="42" Width="217" FontSize="24"/>
+        <TextBlock x:Name="Password" HorizontalAlignment="Left" Margin="61,156,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Height="42" Width="217" FontSize="24"/>
+        <TextBox x:Name="UsernameInput" HorizontalAlignment="Left" Margin="278,109,0,0" TextWrapping="Wrap" Text="{Binding InputUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="42" Width="296" AllowDrop="True" SelectionChanged="UsernameInput_SelectionChanged"/>
+        <TextBlock x:Name="CheckLogin" HorizontalAlignment="Left" Margin="335,198,0,0" TextWrapping="Wrap" Text="{Binding LoginCheck, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="76" Width="196" FontSize="24" SelectionChanged="CheckLogin_SelectionChanged"/>
+        <Button x:Name="Login" Content="Login" Command="{Binding LoginCommand}" HorizontalAlignment="Left" Margin="636,160,0,0" VerticalAlignment="Top" Height="32" Width="143"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="278,156,0,0" VerticalAlignment="Top" Height="42" Width="296" PasswordChanged="PasswordBox_PasswordChanged" Password="{Binding InputPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button x:Name="Register" Content="Register" Command="{Binding Register}" HorizontalAlignment="Left" Margin="636,109,0,0" VerticalAlignment="Top" Width="143" FontSize="16"/>
+
 
     </Grid>
 </Page>
