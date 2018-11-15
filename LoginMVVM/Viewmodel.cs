@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight.Command;
 using LoginMVVM.Annotations;
 
@@ -18,18 +20,17 @@ namespace LoginMVVM
         private string _inputUsername;
         private string _inputPassword;
         private string _loginCheck;
-        ObservableCollection<User> users = new ObservableCollection<User>();
-
+        ObservableCollection<User> _users = new ObservableCollection<User>();
         public Viewmodel()
         {
 
-            users.Add(new User("Lucas", "lucas123"));
-            users.Add(new User("Resul","Resul123"));
-            users.Add(new User("Thomas", "Storpik123"));
+            _users.Add(new User("Lucas", "lucas123"));
+            _users.Add(new User("Resul","Resul123"));
+            _users.Add(new User("Thomas", "Storpik123"));
             
             _loginCommand = new RelayCommand(checkLogin);
-            _register = new RelayCommand(AddRegister);
-
+            _register = new RelayCommand(RegisterAccount);
+            
         }
 
 
@@ -72,15 +73,19 @@ namespace LoginMVVM
             set { _register = value; }
         }
 
+    
+
         public void checkLogin()
         {
-            foreach (var user in users)
+            foreach (var user in _users)
             {
                 if (InputUsername == user.Username)
                 {
                     if (InputPassword == user.Password)
                     {
                         LoginCheck = "Access granted";
+                        Frame currentFrame = Window.Current.Content as Frame;
+                        currentFrame.Navigate(typeof(BlankPage2));
                         break;
                     }
 
@@ -98,10 +103,29 @@ namespace LoginMVVM
             }
         }
 
-        public void AddRegister()
+        public void RegisterAccount()
         {
-            users.Add(new User(_inputUsername,_inputPassword));
+            Boolean isTaken = false;
+            foreach (var user in _users)
+            {
+                if (InputUsername == user.Username)
+                {
+                    isTaken = true;
+                    break;
+                }
+            }
+            if (!isTaken)
+            {
+                _users.Add(new User(_inputUsername, _inputPassword));
+                LoginCheck = "User added";
+            }
+            else LoginCheck = "Username is taken";
         }
+
+  
+        
+
+        
         
 
         #region MyRegion

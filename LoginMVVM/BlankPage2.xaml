@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="LoginMVVM.BlankPage2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoginMVVM"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="Text" HorizontalAlignment="Left" Margin="527,183,0,0"  TextWrapping="Wrap" Text=" YOU MADE IT" VerticalAlignment="Top" Height="90" Width="352" FontSize="48"/>
+        <ProgressBar x:Name="Bar" HorizontalAlignment="Left" Height="266" Margin="694,273,0,0" VerticalAlignment="Top" Value="1" SmallChange="21" RequestedTheme="Dark" Background="#3300FF0C"/>
+    </Grid>
+</Page>

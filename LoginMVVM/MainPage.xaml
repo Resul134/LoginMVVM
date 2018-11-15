@@ -5,10 +5,9 @@
     xmlns:local="using:LoginMVVM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-    <Page.Background>
-        <ImageBrush Stretch="Fill" ImageSource="Assets/bitch.jpg"/>
-    </Page.Background>
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+   
 
     <Page.DataContext>
         <local:Viewmodel/>
@@ -26,7 +25,7 @@
         <TextBlock x:Name="CheckLogin" HorizontalAlignment="Left" Margin="335,198,0,0" TextWrapping="Wrap" Text="{Binding LoginCheck, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="76" Width="196" FontSize="24" SelectionChanged="CheckLogin_SelectionChanged"/>
         <Button x:Name="Login" Content="Login" Command="{Binding LoginCommand}" HorizontalAlignment="Left" Margin="636,160,0,0" VerticalAlignment="Top" Height="32" Width="143"/>
         <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="278,156,0,0" VerticalAlignment="Top" Height="42" Width="296" PasswordChanged="PasswordBox_PasswordChanged" Password="{Binding InputPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button x:Name="Register" Content="Register" Command="{Binding Register}" HorizontalAlignment="Left" Margin="636,109,0,0" VerticalAlignment="Top" Width="143" FontSize="16"/>
+        <Button x:Name="Register" Content="Register" Command="{Binding Register, Mode=TwoWay}" HorizontalAlignment="Left" Margin="636,109,0,0" VerticalAlignment="Top" Width="143" FontSize="16"/>
 
 
     </Grid>
